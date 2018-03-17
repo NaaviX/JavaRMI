@@ -1,6 +1,8 @@
 package p1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -46,7 +48,17 @@ public class Register extends Window {
 		register = new Button("S'inscrire");
 		register.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
-		    	  String[] rep = {IDUtilisateur.getText(), MotDePasse.getPassword().toString(),NumPermis.getText(),NumAssurance.getText(),Nom.getText(),Prenom.getText(),DateNaiss.getText(),Rue.getText(),CodePostal.getText(),Ville.getText(),TypeUtilisateur.getSelectedItem().toString()};
+		    	  String mdp = null;
+				try {
+					mdp = ParserClient.stringtoBase64(MotDePasse.getPassword().toString());
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    	  String[] rep = {IDUtilisateur.getText(),mdp ,NumPermis.getText(),NumAssurance.getText(),Nom.getText(),Prenom.getText(),DateNaiss.getText(),Rue.getText(),CodePostal.getText(),Ville.getText(),TypeUtilisateur.getSelectedItem().toString()};
 		        //TODO : inscrire utilisateur dans la BDD, réponse reçue : booleen
 		      }
 		    });

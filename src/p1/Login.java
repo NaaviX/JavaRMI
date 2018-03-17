@@ -1,6 +1,9 @@
 package p1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
+import java.rmi.RemoteException;
+
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -23,6 +26,14 @@ public class Login extends Window {
 		seConnecter = new Button("Se connecter");
 		seConnecter.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
+		    	  String mdp = null;
+					try {
+						mdp = ParserClient.stringtoBase64(MotDePasse.getPassword().toString());
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
 		    	  String[] rep = {IDUtilisateur.getText(), MotDePasse.getPassword().toString()};
 		    	  setConnected(IDUtilisateur.getText());
 		        //TODO : envoyer infos connexion, recupère reponse
