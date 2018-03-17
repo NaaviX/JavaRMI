@@ -1,11 +1,14 @@
 package p1;
+
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+
+import pserveur.Voiture;
 
 public class BuyVehicles extends Window {
 	/**
@@ -18,8 +21,8 @@ public class BuyVehicles extends Window {
 	private JComboBox<String> vehiclesList;
 	public BuyVehicles() {
 		super("Acheter véhicule");
-		
-		
+	
+		List<Voiture> voitures = ServiceClient.toutevoiture();
 		
 		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete vehicules disponibles à l'achat
 		vehiclesList = new JComboBox<String>(tab);
@@ -44,5 +47,6 @@ public class BuyVehicles extends Window {
 		
 		this.setContentPane(contenu);
 		this.setVisible(true);
-	}
+	} 
 }
+
