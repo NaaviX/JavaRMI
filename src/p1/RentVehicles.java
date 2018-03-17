@@ -1,3 +1,4 @@
+package p1;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -6,21 +7,22 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
-public class BuyVehicles extends Window {
+public class RentVehicles extends Window {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel label;
-	private Button acheter;
+	private Button louer;
+	private Button attente;
 	private Panel contenu;
 	private JComboBox<String> vehiclesList;
-	public BuyVehicles() {
-		super("Acheter véhicule");
+	public RentVehicles() {
+		super("Louer véhicule");
 		
 		
 		
-		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete vehicules disponibles à l'achat
+		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete liste vehicule à louer
 		vehiclesList = new JComboBox<String>(tab);
 		vehiclesList.setPreferredSize(new Dimension(100, 20));
 		
@@ -28,20 +30,34 @@ public class BuyVehicles extends Window {
 		
 		label = new JLabel("Voiture :");
 		
-		acheter = new Button("Ajouter au panier");
+		attente = new Button("Mise en attente");
 		
-		acheter.addActionListener(new ActionListener(){
+		louer = new Button("Louer");
+		louer.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
 		    	  String[] rep = {vehiclesList.getSelectedItem().toString(), Window.IDUtilisateur};
-		        //TODO : acheter voiture
+		        //TODO : louer voiture
 		      }
 		    });
 		
 		contenu.add(label);
 		contenu.add(vehiclesList);
-		contenu.add(acheter);
+		contenu.add(attente);
+		contenu.add(louer);
+		if(isAvailable()) {
+			attente.setEnabled(false);
+			louer.setEnabled(true);
+		} else {
+			louer.setEnabled(false);
+			attente.setEnabled(true);
+		}
 		
 		this.setContentPane(contenu);
 		this.setVisible(true);
+	}
+
+	public boolean isAvailable() {
+		//requete sql qui renvoie dispo
+		return true;
 	}
 }
