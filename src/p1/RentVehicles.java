@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -25,6 +27,7 @@ public class RentVehicles extends Window {
 		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete liste vehicule à louer
 		vehiclesList = new JComboBox<String>(tab);
 		vehiclesList.setPreferredSize(new Dimension(100, 20));
+		vehiclesList.addItemListener(new ItemState());
 		
 		contenu = new Panel();
 		
@@ -44,20 +47,27 @@ public class RentVehicles extends Window {
 		contenu.add(vehiclesList);
 		contenu.add(attente);
 		contenu.add(louer);
-		if(isAvailable()) {
-			attente.setEnabled(false);
-			louer.setEnabled(true);
-		} else {
-			louer.setEnabled(false);
-			attente.setEnabled(true);
-		}
+		
+		
 		
 		this.setContentPane(contenu);
 		this.setVisible(true);
 	}
+	
+	class ItemState implements ItemListener{
+	    public void itemStateChanged(ItemEvent e) {
+	    	if(isAvailable(vehiclesList.getSelectedItem().toString())) {
+				attente.setEnabled(false);
+				louer.setEnabled(true);
+			} else {
+				louer.setEnabled(false);
+				attente.setEnabled(true);
+			}
+	    }               
+	  }
 
-	public boolean isAvailable() {
-		//requete sql qui renvoie dispo
+	public boolean isAvailable(String voiture) {
+		//requete sql qui renvoie dispo du vehicule
 		return true;
 	}
 }

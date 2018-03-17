@@ -39,11 +39,7 @@ public class Window extends JFrame{
 		setNotConnected();
 		menuBar.add(menu);
 		
-		connexion.addActionListener(new ActionListener(){
-		      public void actionPerformed(ActionEvent event){
-		        new Login().setVisible(true);
-		      }
-		    });
+		connexion.addActionListener(new ConnexionListener());
 		
 		inscription.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
@@ -96,5 +92,12 @@ public class Window extends JFrame{
 		menu.add(deconnexion);
 		isLogged = true;
 	}
+	
+	class ConnexionListener implements ActionListener{
+	    public void actionPerformed(ActionEvent e) {
+	    	Window.this.setVisible(false);
+	    	new Login().setVisible(true);    
+	    }
+	  }
 	
 }

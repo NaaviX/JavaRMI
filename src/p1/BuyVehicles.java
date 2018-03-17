@@ -34,7 +34,7 @@ public class BuyVehicles extends Window {
 		acheter.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
 		    	  String[] rep = {vehiclesList.getSelectedItem().toString(), Window.IDUtilisateur};
-		        //TODO : acheter voiture
+		        //TODO : requete ajouter au panier
 		      }
 		    });
 		

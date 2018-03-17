@@ -59,7 +59,7 @@ public class Register extends Window {
 					e.printStackTrace();
 				}
 		    	  String[] rep = {IDUtilisateur.getText(),mdp ,NumPermis.getText(),NumAssurance.getText(),Nom.getText(),Prenom.getText(),DateNaiss.getText(),Rue.getText(),CodePostal.getText(),Ville.getText(),TypeUtilisateur.getSelectedItem().toString()};
-		        //TODO : inscrire utilisateur dans la BDD, réponse reçue : booleen
+		        //TODO : requete inscrire utilisateur dans la BDD, réponse reçue : booleen
 		      }
 		    });
 		
