@@ -1,5 +1,4 @@
 package pserveur;
-
 import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -12,13 +11,26 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
-import p1.ResponseUser;
-import p1.ResponseVoiture;
+import pObjets.Panier;
+import pObjets.ResponseUser;
+import pObjets.ResponseVoiture;
+import pObjets.Voiture;
 
 public class  Service extends UnicastRemoteObject implements IService{
 	
 	public Service() throws RemoteException {
 		super();
+	}
+	
+	public void updateVoiture(boolean status)throws RemoteException
+	{
+		
+	}
+	
+	
+	public void ajoutVoiture(Voiture voiture) throws RemoteException
+	{
+
 	}
 	
 	public List<Voiture> touteVoiture()throws RemoteException

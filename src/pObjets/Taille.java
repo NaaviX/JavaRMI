@@ -1,4 +1,4 @@
-package pserveur;
+package pObjets;
 
 public enum Taille {
 	Citadine,

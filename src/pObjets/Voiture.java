@@ -1,4 +1,4 @@
-package pserveur;
+package pObjets;
 
 public class Voiture {
 	private final  String idVoiture;

@@ -1,6 +1,8 @@
-package pserveur;
+package pObjets;
 
 import java.util.Date;
+
+import p1.Panier;
 
 public class Utilisateur {
 

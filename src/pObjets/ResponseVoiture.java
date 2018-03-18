@@ -1,8 +1,6 @@
-package p1;
+package pObjets;
 
 import java.util.Date;
-
-import pserveur.Taille;
 
 public class ResponseVoiture {
 	private final Date dateDebut;

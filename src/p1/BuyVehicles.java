@@ -9,7 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import pserveur.Voiture;
+import pObjets.Voiture;
 
 public class BuyVehicles extends Window {
 	/**
