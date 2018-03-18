@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import pObjets.ResponseVoiture;
 import pObjets.Voiture;
 
 public class BuyVehicles extends Window {
@@ -38,7 +39,8 @@ public class BuyVehicles extends Window {
 		acheter.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
 		    	  String[] rep = {vehiclesList.getSelectedItem().toString(), Window.IDUtilisateur};
-		        //TODO : requete ajouter au panier
+		        //TODO : requete ajouter au panier venant de service client
+		    	  
 		    	  JOptionPane.showMessageDialog(null, "Voiture ajoutée au panier", "Information", JOptionPane.INFORMATION_MESSAGE);
 		      }
 		    });

@@ -37,7 +37,7 @@ public class Login extends Window {
 					}
 		    	  String[] rep = {IDUtilisateur.getText(), MotDePasse.getPassword().toString()};
 		    	  setConnected(IDUtilisateur.getText());
-		        //TODO : envoyer infos connexion, recupère reponse
+		        //TODO : envoyer infos connexion, recupère boolean fonction dans ServiceClient
 		    	  Login.this.setVisible(false);
 			    	new RentVehicles().setVisible(true);   
 			    	JOptionPane.showMessageDialog(null, "Connexion réussie", "Information", JOptionPane.INFORMATION_MESSAGE);

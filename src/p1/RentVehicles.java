@@ -25,7 +25,7 @@ public class RentVehicles extends Window {
 		setConnected(Window.IDUtilisateur);
 		
 		
-		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete liste vehicule à louer
+		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete liste vehicule à louer non réalisé fonction dans service client
 		vehiclesList = new JComboBox<String>(tab);
 		vehiclesList.setPreferredSize(new Dimension(100, 20));
 		vehiclesList.addItemListener(new ItemState());
