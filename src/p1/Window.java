@@ -36,32 +36,41 @@ public class Window extends JFrame{
 		panier = new JMenuItem("Mon panier"); 
 		deconnexion = new JMenuItem("Déconnexion");
 		IDUtilisateur = null;
-		setNotConnected();
 		menuBar.add(menu);
 		
 		connexion.addActionListener(new ConnexionListener());
 		
 		inscription.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
+		    	  Window.this.setVisible(false);
 		        new Register().setVisible(true);
 		      }
 		    });
 		
 		louer.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
+		    	  Window.this.setVisible(false);
 		        new RentVehicles().setVisible(true);
 		      }
 		    });
 		
 		acheter.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
+		    	  Window.this.setVisible(false);
 		        new BuyVehicles().setVisible(true);
 		      }
 		    });
 		deconnexion.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
+		    	  Window.this.setVisible(false);
 		    	  setNotConnected();
 		        new Login().setVisible(true);
+		      }
+		    });
+		panier.addActionListener(new ActionListener(){
+		      public void actionPerformed(ActionEvent event){
+		    	  Window.this.setVisible(false);
+		        new Panier().setVisible(true);
 		      }
 		    });
 		

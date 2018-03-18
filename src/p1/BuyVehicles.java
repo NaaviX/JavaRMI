@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import pserveur.Voiture;
 
@@ -21,7 +22,7 @@ public class BuyVehicles extends Window {
 	private JComboBox<String> vehiclesList;
 	public BuyVehicles() {
 		super("Acheter véhicule");
-	
+		setConnected(Window.IDUtilisateur);
 		List<Voiture> voitures = ServiceClient.toutevoiture();
 		
 		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete vehicules disponibles à l'achat
@@ -38,6 +39,7 @@ public class BuyVehicles extends Window {
 		      public void actionPerformed(ActionEvent event){
 		    	  String[] rep = {vehiclesList.getSelectedItem().toString(), Window.IDUtilisateur};
 		        //TODO : requete ajouter au panier
+		    	  JOptionPane.showMessageDialog(null, "Voiture ajoutée au panier", "Information", JOptionPane.INFORMATION_MESSAGE);
 		      }
 		    });
 		

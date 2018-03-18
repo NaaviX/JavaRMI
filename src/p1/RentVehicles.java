@@ -8,6 +8,7 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class RentVehicles extends Window {
 	/**
@@ -21,7 +22,7 @@ public class RentVehicles extends Window {
 	private JComboBox<String> vehiclesList;
 	public RentVehicles() {
 		super("Louer véhicule");
-		
+		setConnected(Window.IDUtilisateur);
 		
 		
 		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //requete liste vehicule à louer
@@ -40,6 +41,7 @@ public class RentVehicles extends Window {
 		      public void actionPerformed(ActionEvent event){
 		    	  String[] rep = {vehiclesList.getSelectedItem().toString(), Window.IDUtilisateur};
 		        //TODO : louer voiture
+		    	  JOptionPane.showMessageDialog(null, "Voiture louée avec succès", "Information", JOptionPane.INFORMATION_MESSAGE);
 		      }
 		    });
 		

@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -22,7 +23,7 @@ public class Login extends Window {
 	private Panel contenu;
 	public Login() {
 		super("Login");
-		
+		setNotConnected();
 		seConnecter = new Button("Se connecter");
 		seConnecter.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent event){
@@ -37,6 +38,9 @@ public class Login extends Window {
 		    	  String[] rep = {IDUtilisateur.getText(), MotDePasse.getPassword().toString()};
 		    	  setConnected(IDUtilisateur.getText());
 		        //TODO : envoyer infos connexion, recupère reponse
+		    	  Login.this.setVisible(false);
+			    	new RentVehicles().setVisible(true);   
+			    	JOptionPane.showMessageDialog(null, "Connexion réussie", "Information", JOptionPane.INFORMATION_MESSAGE);
 		      }
 		    });
 		

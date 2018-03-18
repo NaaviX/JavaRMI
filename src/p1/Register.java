@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.text.DateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -29,19 +30,19 @@ public class Register extends Window {
 	private Panel contenu;
 	public Register() {
 		super("Editer véhicules");
-		
+		setNotConnected();
 		IDUtilisateur = new JTextField("login");
-		MotDePasse = new JPasswordField("MotDePasse");
-		NumPermis = new JTextField();
-		NumAssurance = new JTextField();
+		MotDePasse = new JPasswordField("Mot De Passe");
+		NumPermis = new JTextField("Numero permis");
+		NumAssurance = new JTextField("Numero assurance");
 		String[] tab = {"Externe", "Etudiant UPEM", "Professeur UPEM"};
 		TypeUtilisateur = new JComboBox<String>(tab);
-		Nom = new JTextField();
-		Prenom = new JTextField();
+		Nom = new JTextField("Nom");
+		Prenom = new JTextField("Prenom");
 		DateNaiss = new JFormattedTextField(DateFormat.getDateInstance());
-		Rue = new JFormattedTextField();
-		CodePostal = new JTextField();
-		Ville = new JTextField();
+		Rue = new JFormattedTextField("Rue");
+		CodePostal = new JTextField("Code Postal");
+		Ville = new JTextField("Ville");
 		
 		contenu = new Panel();
 		
@@ -60,6 +61,7 @@ public class Register extends Window {
 				}
 		    	  String[] rep = {IDUtilisateur.getText(),mdp ,NumPermis.getText(),NumAssurance.getText(),Nom.getText(),Prenom.getText(),DateNaiss.getText(),Rue.getText(),CodePostal.getText(),Ville.getText(),TypeUtilisateur.getSelectedItem().toString()};
 		        //TODO : requete inscrire utilisateur dans la BDD, réponse reçue : booleen
+		    	  JOptionPane.showMessageDialog(null, "Inscription effectuée, veuillez-vous connecter", "Information", JOptionPane.INFORMATION_MESSAGE);
 		      }
 		    });
 		

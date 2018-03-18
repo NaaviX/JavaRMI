@@ -22,7 +22,7 @@ public class Panier extends Window {
 	
 	public Panier() {
 		super("Louer véhicule");
-		
+		setConnected(Window.IDUtilisateur);
 		
 		
 		String[] tab = {"Option 1", "Option 2", "Option 3", "Option 4"}; //REQUETE liste vehicule dans le panier
