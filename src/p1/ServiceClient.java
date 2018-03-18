@@ -1,5 +1,7 @@
 package p1;
 import pObjets.Panier;
+
+import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 import java.rmi.Remote;
@@ -16,7 +18,7 @@ public class ServiceClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote r = Naming.lookup("rmi://10.0.0.13/ServiceProjetRmi");
+			Remote r = Naming.lookup("rmi://" + InetAddress.getLocalHost().getHostAddress() + "/ServiceProjetRmi");
 			if (r instanceof Service) {
 				List<Voiture> voitures = ((Service)r ).touteVoiture();
 				return voitures;
@@ -33,7 +35,7 @@ public class ServiceClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote r = Naming.lookup("rmi://10.0.0.13/ServiceProjetRmi");
+			Remote r = Naming.lookup("rmi://" + InetAddress.getLocalHost().getHostAddress() + "/ServiceProjetRmi");
 			if (r instanceof Service) {
 				boolean bool = ((Service)r ).userExist(response);
 				return bool;
@@ -50,7 +52,7 @@ public class ServiceClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote r = Naming.lookup("rmi://10.0.0.13/ServiceProjetRmi");
+			Remote r = Naming.lookup("rmi://" + InetAddress.getLocalHost().getHostAddress() + "/ServiceProjetRmi");
 			if (r instanceof Service) {
 				Panier bool = ((Service)r ).trouvevoiture(response);
 				return bool;
@@ -68,7 +70,7 @@ public class ServiceClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote r = Naming.lookup("rmi://10.0.0.13/ServiceProjetRmi");
+			Remote r = Naming.lookup("rmi://" + InetAddress.getLocalHost().getHostAddress() + "/ServiceProjetRmi");
 			if (r instanceof Service) {
 				((Service)r ).updateVoiture(status);
 	}
@@ -84,7 +86,7 @@ public class ServiceClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote r = Naming.lookup("rmi://10.0.0.13/ServiceProjetRmi");
+			Remote r = Naming.lookup("rmi://" + InetAddress.getLocalHost().getHostAddress() + "/ServiceProjetRmi");
 			if (r instanceof Service) {
 				((Service)r ).ajoutVoiture(voiture);
 			}
